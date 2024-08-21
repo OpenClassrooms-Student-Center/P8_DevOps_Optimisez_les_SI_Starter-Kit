@@ -1,0 +1,13 @@
+services:
+  webserver1:
+    image: nginxdemos/hello
+
+  webserver2:
+    image: nginxdemos/hello
+
+  haproxy:
+    image: haproxy:2.3
+    volumes:
+      - ./haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg
+    ports:
+      - 8080:80
